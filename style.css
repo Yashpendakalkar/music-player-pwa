@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #1e1e1e;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+}
+.player {
+  max-width: 500px;
+  margin: auto;
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input[type="range"], select {
+  width: 100%;
+}

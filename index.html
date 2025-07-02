@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#ffcc00"/>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Music Player</title>
+</head>
+<body>
+  <div class="player">
+    <h1>Music Player PWA</h1>
+    <input type="file" id="fileInput" accept="audio/*" multiple />
+    <ul id="playlist"></ul>
+    <div class="controls">
+      <button id="prev">⏮️</button>
+      <button id="playPause">▶️</button>
+      <button id="next">⏭️</button>
+      <input type="range" id="progress" value="0" />
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="1"/>
+      <select id="speed">
+        <option value="0.5">0.5x</option>
+        <option value="1" selected>1x</option>
+        <option value="1.5">1.5x</option>
+        <option value="2">2x</option>
+      </select>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered:', reg.scope))
+          .catch(err => console.error('Service Worker registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
